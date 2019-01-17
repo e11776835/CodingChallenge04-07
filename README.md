@@ -7,6 +7,8 @@
 * The user should then be able to store the best gifs locally as hers/his favorites (no database/server or offline support required!)
 * List all favorite gifs of the user and make them removable
 
+Use this giphy API key: `vf7nDm11F3X2Pe63jIGjWWPiFCFCZXM8`
+
 ## Rules
 
 * Structure your application by using components and services
