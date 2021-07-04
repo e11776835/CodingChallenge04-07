@@ -1,0 +1,7 @@
+<div *ngFor="let result of giphyService.searchResults$ | async"
+     class="flex justify-center flex-col w-full h-full shadow rounded overflow-hidden bg-gray-200">
+  <div>
+    <img [src]="result.images.fixed_width.url" [alt]="result.title">
+    <button>Add to Favs</button>
+  </div>
+</div>
