@@ -1,5 +1,5 @@
 <div>
-  <input name="search" [(ngModel)]="searchTerm" placeholder="Giphy Search...">
+  <input name="search" [(ngModel)]="searchTerm" placeholder="Giphy Search..." (keyup.enter)="searchGif()">
   <button (click)="searchGif()" routerLink="search">Search</button>
   <button routerLink="favs">Favs</button>
 </div>

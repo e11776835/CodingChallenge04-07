@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-favs',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
+  giphyFavs: Map<string, string> = new Map();
+
+  ngOnInit() {
+    if (localStorage.getItem('giphyFavs') != null) {
+      this.giphyFavs = JSON.parse(localStorage.getItem('giphyFavs'));
+    }
+  }
+
+  removeFromFavs(result): void {
+    this.giphyFavs.delete(result.title);
+    localStorage.setItem('giphyFavs', JSON.stringify(this.giphyFavs));
+  }
 }

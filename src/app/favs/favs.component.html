@@ -1,3 +1,11 @@
-<p>
-  favs works!
-</p>
+<div *ngIf="giphyFavs != null">
+  <div *ngFor="let result of giphyFavs">
+    <div>
+      <img [src]="result" [alt]="result">
+      <button (click)="removeFromFavs(result)">Remove from Favs</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="giphyFavs == null">
+  no favorites found!
+</div>

@@ -8,6 +8,11 @@ import {GiphyService} from '../giphy.service';
 })
 export class SearchComponent implements OnInit {
 
+  constructor(public giphyService: GiphyService) {
+  }
+
+  giphyFavs: Map<string, string> = new Map();
+
   @HostListener('window:scroll')
   onScroll() {
     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
@@ -15,9 +20,14 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  constructor(public giphyService: GiphyService) { }
-
   ngOnInit() {
+    if (localStorage.getItem('giphyFavs') != null) {
+      this.giphyFavs = JSON.parse(localStorage.getItem('giphyFavs'));
+    }
   }
 
+  addToFavs(result): void {
+    this.giphyFavs.set(result.title, result.images.fixed_width.url);
+    localStorage.setItem('giphyFavs', JSON.stringify(this.giphyFavs));
+  }
 }
